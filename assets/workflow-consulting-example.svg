@@ -51,20 +51,20 @@
     </g>
     <text x="120" y="731" fill="#ffb9b9" font-size="24" font-weight="700">2–4 manager hours every week</text>
 
-    <text x="630" y="290" fill="#8dd7ff" font-size="20" font-weight="700" letter-spacing="3">30-MINUTE WORKFLOW LEAK SCAN</text>
-    <text x="630" y="340" fill="#ffffff" font-size="34" font-weight="700">The consulting conversation</text>
-    <text x="630" y="382" fill="#b9c6d9" font-size="21">We use one real process—not a generic</text>
-    <text x="630" y="412" fill="#b9c6d9" font-size="21">technology pitch—to define the fix.</text>
+    <text x="630" y="290" fill="#8dd7ff" font-size="18" font-weight="700" letter-spacing="2.4">30-MINUTE WORKFLOW LEAK SCAN</text>
+    <text x="630" y="340" fill="#ffffff" font-size="30" font-weight="700">The consulting conversation</text>
+    <text x="630" y="382" fill="#b9c6d9" font-size="20">We use one real process—not a generic</text>
+    <text x="630" y="412" fill="#b9c6d9" font-size="20">technology pitch—to define the fix.</text>
 
     <g>
       <rect x="632" y="454" width="336" height="54" rx="14" fill="#183653"/>
-      <text x="657" y="489" fill="#ffffff" font-size="21"><tspan fill="#8dd7ff" font-weight="700">01</tspan>  Show the current steps</text>
+      <text x="657" y="489" fill="#ffffff" font-size="18"><tspan fill="#8dd7ff" font-weight="700">01</tspan><tspan dx="10">Show the current steps</tspan></text>
       <rect x="632" y="520" width="336" height="54" rx="14" fill="#183653"/>
-      <text x="657" y="555" fill="#ffffff" font-size="21"><tspan fill="#8dd7ff" font-weight="700">02</tspan>  Find delays and duplicate work</text>
+      <text x="657" y="555" fill="#ffffff" font-size="18"><tspan fill="#8dd7ff" font-weight="700">02</tspan><tspan dx="10">Find delays and duplicate work</tspan></text>
       <rect x="632" y="586" width="336" height="54" rx="14" fill="#183653"/>
-      <text x="657" y="621" fill="#ffffff" font-size="21"><tspan fill="#8dd7ff" font-weight="700">03</tspan>  Pick the smallest useful change</text>
+      <text x="657" y="621" fill="#ffffff" font-size="18"><tspan fill="#8dd7ff" font-weight="700">03</tspan><tspan dx="10">Pick the smallest useful change</tspan></text>
       <rect x="632" y="652" width="336" height="54" rx="14" fill="#183653"/>
-      <text x="657" y="687" fill="#ffffff" font-size="21"><tspan fill="#8dd7ff" font-weight="700">04</tspan>  Define the first-version scope</text>
+      <text x="657" y="687" fill="#ffffff" font-size="18"><tspan fill="#8dd7ff" font-weight="700">04</tspan><tspan dx="10">Define the first-version scope</tspan></text>
     </g>
     <rect x="642" y="729" width="316" height="40" rx="20" fill="url(#consult)"/>
     <text x="800" y="756" text-anchor="middle" fill="#04111f" font-size="19" font-weight="700">Leave with a practical next step</text>
@@ -85,7 +85,7 @@
       <circle cx="1176" cy="644" r="14" fill="#a8e6cf"/>
       <text x="1205" y="652" fill="#ffffff" font-size="21">Automatic reminders</text>
     </g>
-    <text x="1140" y="731" fill="#a8e6cf" font-size="24" font-weight="700">Live visibility instead of Friday chasing</text>
+    <text x="1140" y="731" fill="#a8e6cf" font-size="22" font-weight="700">Live visibility instead of Friday chasing</text>
 
     <line x1="514" y1="508" x2="570" y2="508" stroke="#8dd7ff" stroke-width="5" marker-end="url(#arrow)"/>
     <line x1="1024" y1="508" x2="1080" y2="508" stroke="#8dd7ff" stroke-width="5" marker-end="url(#arrow)"/>
