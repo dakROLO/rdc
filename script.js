@@ -1,5 +1,5 @@
 const WORKDAYS_PER_YEAR = 250;
-const SITE_VERSION = "v1.1.3";
+const SITE_VERSION = "v1.1.4";
 
 const moneyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
