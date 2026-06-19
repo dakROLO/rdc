@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Professional photo placeholder for Dakota King</title>
+  <desc id="desc">Royal Digital Clarity branded placeholder to be replaced with a professional portrait.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101f35"/>
+      <stop offset="1" stop-color="#07101d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.25" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#42a5ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#42a5ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" rx="48" fill="url(#bg)"/>
+  <rect width="900" height="1100" rx="48" fill="url(#glow)"/>
+  <rect x="28" y="28" width="844" height="1044" rx="36" fill="none" stroke="#8dd7ff" stroke-opacity="0.25" stroke-width="2"/>
+  <circle cx="450" cy="385" r="142" fill="#203958" stroke="#8dd7ff" stroke-opacity="0.35" stroke-width="4"/>
+  <path d="M234 835c0-145 96-263 216-263s216 118 216 263v84H234z" fill="#203958" stroke="#8dd7ff" stroke-opacity="0.35" stroke-width="4"/>
+  <circle cx="450" cy="385" r="88" fill="#2a496c"/>
+  <path d="M318 829c16-108 66-173 132-173s116 65 132 173" fill="#2a496c"/>
+  <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif">
+    <text x="450" y="105" fill="#8dd7ff" font-size="24" font-weight="700" letter-spacing="5">ROYAL DIGITAL CLARITY</text>
+    <text x="450" y="980" fill="#ffffff" font-size="38" font-weight="700">Professional photo coming soon</text>
+    <text x="450" y="1028" fill="#b9c6d9" font-size="24">Replace this file with Dakota’s portrait</text>
+  </g>
+</svg>

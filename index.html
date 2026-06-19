@@ -3,25 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Royal Digital Clarity | Digital Transformation Consulting</title>
-  <meta name="description" content="Royal Digital Clarity helps teams remove friction, modernize workflows, and unlock value from Microsoft 365, Power Platform, data, and AI." />
-  <link rel="canonical" href="https://royaldigitalclarity.com/" />
+  <title>Microsoft 365 & Workflow Automation Consulting | RDC</title>
+  <meta name="description" content="Royal Digital Clarity helps small businesses and operations leaders reduce manual work using Microsoft 365, Power Platform, workflow automation, and practical AI." />
+  <link rel="canonical" href="https://www.royaldigitalclarity.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Royal Digital Clarity | Recover Time Lost to Manual Work" />
+  <meta property="og:description" content="Practical Microsoft 365, workflow automation, Power Platform, and AI consulting." />
+  <meta property="og:url" content="https://www.royaldigitalclarity.com/" />
+  <meta property="og:image" content="https://www.royaldigitalclarity.com/assets/rdc-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="64x64" href="assets/rdc-crown-favicon-64.png" />
   <link rel="apple-touch-icon" sizes="192x192" href="assets/rdc-crown-favicon-192.png" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://www.royaldigitalclarity.com/#organization",
+        "name":"Royal Digital Clarity",
+        "url":"https://www.royaldigitalclarity.com/",
+        "logo":"https://www.royaldigitalclarity.com/assets/rdc-logo.png",
+        "email":"dakota@royaldigitalclarity.com",
+        "description":"Microsoft 365, workflow automation, Power Platform, and practical AI consulting for small businesses and operations teams.",
+        "founder":{"@id":"https://www.royaldigitalclarity.com/#dakota-king"},
+        "areaServed":"United States"
+      },
+      {
+        "@type":"Person",
+        "@id":"https://www.royaldigitalclarity.com/#dakota-king",
+        "name":"Dakota King",
+        "image":"https://www.royaldigitalclarity.com/assets/dakota-king.jpg",
+        "jobTitle":"Digital Transformation Consultant",
+        "worksFor":{"@id":"https://www.royaldigitalclarity.com/#organization"},
+        "knowsAbout":["Microsoft 365","Power Platform","Workflow Automation","Operational Process Improvement","AI Adoption"]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav container">
-      <a class="brand" href="#top" aria-label="Royal Digital Clarity Home">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Royal Digital Clarity home">
         <img src="assets/rdc-logo.png" alt="Royal Digital Clarity logo" />
         <span>Royal Digital Clarity</span>
       </a>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#booking">Book</a>
+        <a href="#problems">Problems</a>
+        <a href="#audiences">Who I Help</a>
+        <a href="#example">Example</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
       </div>
     </nav>
   </header>
@@ -29,72 +65,148 @@
   <main id="top">
     <section class="hero container">
       <div class="hero-copy">
-        <p class="eyebrow">Digital transformation without the buzzword fog machine</p>
-        <h1>Turn operational pain points into simple digital solutions.</h1>
-        <p class="hero-text">
-          Royal Digital Clarity helps small businesses and operations teams improve workflows, modernize with Microsoft 365,
-          build practical Power Platform solutions, and adopt AI in ways that actually help people get work done.
-        </p>
+        <p class="eyebrow">Microsoft 365 · Workflow Automation · Practical AI</p>
+        <h1>Recover the hours your team loses to manual work.</h1>
+        <p class="hero-text">Royal Digital Clarity helps small businesses and operations leaders replace spreadsheet chasing, duplicate entry, email handoffs, manual reporting, and unclear processes with practical digital workflows.</p>
         <div class="hero-actions">
-          <a class="button primary" href="https://outlook.office.com/book/RDC@royaldigitalclarity.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Schedule a consultation</a>
-          <a class="button secondary" href="#services">View services</a>
+          <a class="button primary" href="https://outlook.office.com/book/RDC@royaldigitalclarity.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Find my workflow leak</a>
+          <a class="button secondary" href="#problems">See common problems</a>
+        </div>
+        <p class="microcopy">Start with the work—not the software. No buzzword fog machine required.</p>
+      </div>
+
+      <aside class="calculator-card" aria-labelledby="calculator-title">
+        <p class="eyebrow">Workflow cost estimator</p>
+        <h2 id="calculator-title">What is one repetitive task costing you?</h2>
+        <form id="workflow-calculator" class="calculator-grid">
+          <label>People doing the task<input id="people" type="number" min="1" max="5000" value="10" /></label>
+          <label>Minutes lost per workday<input id="minutes" type="number" min="1" max="480" value="15" /></label>
+          <label>Estimated hourly labor cost<span class="currency-input"><span>$</span><input id="hourly-rate" type="number" min="1" max="1000" value="40" /></span></label>
+        </form>
+        <div class="calculator-result" aria-live="polite">
+          <span>Modeled annual impact</span>
+          <strong id="annual-cost">$25,000</strong>
+          <small><span id="annual-hours">625 hours</span> based on 250 workdays</small>
+        </div>
+        <p class="disclaimer">Illustrative estimate. Actual savings depend on the workflow, implementation, and adoption.</p>
+      </aside>
+    </section>
+
+    <section class="proof-band" aria-label="Professional experience highlights">
+      <div class="container proof-grid">
+        <div><strong>10+</strong><span>years in digital transformation</span></div>
+        <div><strong>6,000+</strong><span>users reached by digital solutions</span></div>
+        <div><strong>2,000+</strong><span>people trained on modern tools</span></div>
+        <div><strong>7,700-person</strong><span>operational environment experience</span></div>
+      </div>
+      <p class="proof-note container">Dakota King professional experience; not presented as RDC client results.</p>
+    </section>
+
+    <section id="problems" class="section container">
+      <div class="section-heading">
+        <p class="eyebrow">Recognize any of these?</p>
+        <h2>Small workflow problems quietly become expensive habits.</h2>
+        <p>Your team needs fewer repeated steps, clearer ownership, and better visibility—not a larger pile of software.</p>
+      </div>
+      <div class="problem-grid">
+        <article class="card"><span>01</span><h3>Spreadsheet chasing</h3><p>Multiple trackers, uncertain versions, and hours spent collecting updates.</p></article>
+        <article class="card"><span>02</span><h3>Email handoffs</h3><p>Requests and approvals disappear inside inboxes with no shared status.</p></article>
+        <article class="card"><span>03</span><h3>Manual reporting</h3><p>Managers rebuild the same report instead of using a repeatable process.</p></article>
+        <article class="card"><span>04</span><h3>Duplicate entry</h3><p>The same information is copied into forms, spreadsheets, emails, and systems.</p></article>
+        <article class="card"><span>05</span><h3>Unclear ownership</h3><p>Work stalls because nobody can quickly see the next action or due date.</p></article>
+        <article class="card"><span>06</span><h3>Trapped knowledge</h3><p>Critical instructions live in memory, chat, and outdated files.</p></article>
+      </div>
+    </section>
+
+    <section id="audiences" class="section audience-section">
+      <div class="container">
+        <div class="section-heading centered"><p class="eyebrow">Who RDC helps</p><h2>Different roles. The same need for clarity.</h2></div>
+        <div class="audience-grid">
+          <article class="audience-card">
+            <p class="eyebrow">Small-business owners</p>
+            <h3>Get more from tools you already pay for.</h3>
+            <p>Improve intake, scheduling, documents, onboarding, approvals, follow-up, and visibility without buying another oversized platform.</p>
+            <ul><li>Track customer requests</li><li>Automate reminders and follow-up</li><li>Organize shared procedures</li><li>Create a simple owner dashboard</li></ul>
+          </article>
+          <article class="audience-card">
+            <p class="eyebrow">Middle managers</p>
+            <h3>Spend less time collecting updates and more time leading.</h3>
+            <p>Create repeatable systems for approvals, assignments, status reporting, workload visibility, and recurring administrative work.</p>
+            <ul><li>Automate status collection</li><li>Route approvals with reminders</li><li>Replace personal trackers</li><li>Capture repeatable team knowledge</li></ul>
+          </article>
         </div>
       </div>
-      <div class="hero-card hero-logo-card" aria-label="Royal Digital Clarity brand">
-        <img class="hero-card-logo" src="assets/rdc-logo.png" alt="Royal Digital Clarity" />
+    </section>
+
+    <section id="example" class="section example-section">
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="eyebrow">See the consulting time at work</p>
+          <h2>Bring a frustrating process. Turn it into a practical next step.</h2>
+          <p>This example shows how a 30-minute Workflow Leak Scan can move a manager from weekly status-report chasing toward a simple, visible Microsoft 365 workflow.</p>
+        </div>
+        <figure class="workflow-example">
+          <img src="assets/workflow-consulting-example.svg" alt="Three-stage example showing a broken manual reporting process, a 30-minute consulting workflow scan, and a streamlined Microsoft 365 workflow" />
+          <figcaption>The recommendation may be a process change, Microsoft 365 configuration, automation, app, or dashboard. The tool comes after the problem is understood.</figcaption>
+        </figure>
+        <div class="example-summary-grid">
+          <article><span>01</span><h3>You bring the real problem</h3><p>No polished requirements document needed. Start with what is wasting time or creating confusion.</p></article>
+          <article><span>02</span><h3>We map and quantify it</h3><p>Identify the handoffs, duplicate work, delay, ownership gaps, and potential value of fixing it.</p></article>
+          <article><span>03</span><h3>You leave with direction</h3><p>Get a practical next step, a useful first-version scope, or a clear reason not to automate it.</p></article>
+        </div>
       </div>
     </section>
 
-    <section id="services" class="section container">
-      <div class="section-heading">
-        <p class="eyebrow">Services</p>
-        <h2>Start small, fix real problems, scale what works.</h2>
+    <section id="sessions" class="section container">
+      <div class="section-heading centered">
+        <p class="eyebrow">Consultation options</p>
+        <h2>Book an outcome—not just a block of time.</h2>
       </div>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Workflow Discovery</h3>
-          <p>Map the current process, identify friction, and define a practical path from problem to digital solution.</p>
-        </article>
-        <article class="card">
-          <h3>M365 Modernization</h3>
-          <p>Use the Microsoft tools already being paid for: Teams, SharePoint, Lists, Planner, Forms, and Bookings.</p>
-        </article>
-        <article class="card">
-          <h3>Power Platform Builds</h3>
-          <p>Create lightweight apps, automations, dashboards, and intake systems that reduce manual admin work.</p>
-        </article>
-        <article class="card">
-          <h3>AI Adoption</h3>
-          <p>Find safe, useful ways to apply AI to documentation, knowledge capture, decision support, and repeatable tasks.</p>
-        </article>
+      <div class="session-grid">
+        <article class="session-card"><span class="session-time">15 minutes</span><h3>Clarity Call</h3><p>One problem, one expert perspective, and one practical next step.</p><ul><li>Validate an idea</li><li>Identify the right tool category</li><li>Decide whether the workflow is worth improving</li></ul></article>
+        <article class="session-card featured"><span class="recommended">Best starting point</span><span class="session-time">30 minutes</span><h3>Workflow Leak Scan</h3><p>Identify the friction and leave with your top improvement opportunities.</p><ul><li>Current-process review</li><li>Manual-work identification</li><li>Recommended quick wins</li><li>Suggested next step</li></ul></article>
+        <article class="session-card"><span class="session-time">60 minutes</span><h3>Digital Action Plan</h3><p>Build a practical blueprint for improving one workflow.</p><ul><li>Current-state map</li><li>Recommended approach</li><li>Modeled opportunity</li><li>First-version scope</li></ul></article>
+      </div>
+      <div class="centered action-row"><a class="button primary" href="https://outlook.office.com/book/RDC@royaldigitalclarity.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener">View available sessions</a></div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="container about-grid">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="assets/dakota-king.jpg" alt="Dakota King, founder and digital transformation consultant at Royal Digital Clarity" />
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">Meet your consultant</p>
+          <h2>Practical transformation experience, translated for real teams.</h2>
+          <p>Dakota King is a digital transformation leader with more than a decade of experience improving complex operational work through Microsoft 365, Power Platform, data, automation, and responsible AI adoption.</p>
+          <p>Royal Digital Clarity brings those lessons down to a useful scale for small businesses and middle managers: understand the work, remove the friction, and build only what creates real value.</p>
+          <div class="about-points">
+            <span>Operations-first thinking</span>
+            <span>Microsoft ecosystem depth</span>
+            <span>Plain-language recommendations</span>
+            <span>Adoption built into the solution</span>
+          </div>
+          <a class="text-link" href="mailto:dakota@royaldigitalclarity.com">Talk directly with Dakota →</a>
+        </div>
       </div>
     </section>
 
-    <section id="process" class="section split container">
-      <div>
-        <p class="eyebrow">Approach</p>
-        <h2>A simple path from idea to outcome.</h2>
-        <p>
-          RDC starts with the work, not the software. The goal is to understand the process, remove unnecessary steps,
-          then select the simplest tool that delivers value quickly.
-        </p>
+    <section id="faq" class="section faq-section">
+      <div class="container faq-wrap">
+        <div class="section-heading"><p class="eyebrow">Frequently asked questions</p><h2>Practical answers before you book.</h2></div>
+        <div class="faq-list">
+          <details><summary>Do I need to buy new software?</summary><p>Not necessarily. We first look at what you own and whether Microsoft 365, Power Platform, or a simpler process change can solve the problem.</p></details>
+          <details><summary>Can you help if I do not know what to automate?</summary><p>Yes. Workflow discovery uncovers repetitive work, delays, unclear handoffs, and opportunities that may not yet look like automation.</p></details>
+          <details><summary>Are the calculator savings guaranteed?</summary><p>No. The calculator is a modeled estimate. Actual results depend on the workflow, solution design, implementation, and adoption.</p></details>
+          <details><summary>What happens after a consultation?</summary><p>You may leave with a quick improvement, a recommended tool and next step, or a scoped opportunity for additional support.</p></details>
+        </div>
       </div>
-      <ol class="steps">
-        <li><span>01</span> Define the pain point</li>
-        <li><span>02</span> Map the current workflow</li>
-        <li><span>03</span> Identify quick wins</li>
-        <li><span>04</span> Build a useful first version</li>
-        <li><span>05</span> Improve based on real use</li>
-      </ol>
     </section>
 
-    <section id="booking" class="section booking container">
-      <p class="eyebrow">Book time</p>
-      <h2>Choose the session that fits your need.</h2>
-      <p>
-        Book a 15-, 30-, or 60-minute session through the Royal Digital Clarity booking page.
-      </p>
-      <a class="button primary" href="https://outlook.office.com/book/RDC@royaldigitalclarity.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener">View available sessions</a>
+    <section class="section final-cta container">
+      <img src="assets/rdc-logo.png" alt="Royal Digital Clarity" />
+      <div><p class="eyebrow">Ready for clarity?</p><h2>Bring one frustrating process. Leave with a better path.</h2></div>
+      <a class="button primary" href="https://outlook.office.com/book/RDC@royaldigitalclarity.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Schedule a consultation</a>
     </section>
   </main>
 
@@ -104,9 +216,6 @@
       <a href="mailto:dakota@royaldigitalclarity.com">dakota@royaldigitalclarity.com</a>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
