@@ -1,4 +1,5 @@
 const WORKDAYS_PER_YEAR = 250;
+const SITE_VERSION = "v1.1.2";
 
 const moneyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -40,10 +41,20 @@ function initializeCalculator() {
   updateWorkflowEstimate();
 }
 
-function initializeYear() {
+function initializeSiteText() {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  const sessionHeading = document.querySelector("#sessions .section-heading h2");
+  if (sessionHeading) {
+    sessionHeading.textContent = "Book an outcome, not just a block of time.";
+  }
+
+  const copyright = document.querySelector(".footer .footer-inner p");
+  if (copyright && !copyright.textContent.includes(SITE_VERSION)) {
+    copyright.append(` · Site ${SITE_VERSION}`);
+  }
 }
 
 initializeCalculator();
-initializeYear();
+initializeSiteText();
