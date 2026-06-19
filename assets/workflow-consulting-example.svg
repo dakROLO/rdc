@@ -4,7 +4,7 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081421"/><stop offset="1" stop-color="#10243b"/></linearGradient>
     <linearGradient id="consult" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#42a5ff"/><stop offset="1" stop-color="#8dd7ff"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000000" flood-opacity="0.3"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000000" flood-opacity="0.3"/></filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8dd7ff"/></marker>
   </defs>
   <rect width="1600" height="900" rx="46" fill="url(#bg)"/>
@@ -22,22 +22,22 @@
     <text x="120" y="412" fill="#b9c6d9" font-size="21">spreadsheets, and hallway conversations.</text>
     <g>
       <rect x="112" y="462" width="356" height="62" rx="15" fill="#203752"/><circle cx="144" cy="493" r="12" fill="#ff9898"/><text x="171" y="500" fill="#ffffff" font-size="18">Chase 8 people for updates</text>
-      <rect x="112" y="540" width="356" height="62" rx="15" fill="#203752"/><circle cx="144" cy="571" r="12" fill="#ff9898"/><text x="171" y="578" fill="#ffffff" font-size="18">Copy answers into a tracker</text>
-      <rect x="112" y="618" width="356" height="62" rx="15" fill="#203752"/><circle cx="144" cy="649" r="12" fill="#ff9898"/><text x="171" y="656" fill="#ffffff" font-size="18">Rebuild the weekly report</text>
+      <rect x="112" y="540" width="356" height="68" rx="15" fill="#203752"/><circle cx="144" cy="574" r="12" fill="#ff9898"/><text x="171" y="568" fill="#ffffff" font-size="17"><tspan x="171" dy="0">Copy answers into</tspan><tspan x="171" dy="20">a tracker</tspan></text>
+      <rect x="112" y="624" width="356" height="62" rx="15" fill="#203752"/><circle cx="144" cy="655" r="12" fill="#ff9898"/><text x="171" y="662" fill="#ffffff" font-size="18">Rebuild the weekly report</text>
     </g>
-    <text x="120" y="731" fill="#ffb9b9" font-size="24" font-weight="700">2–4 manager hours every week</text>
+    <text x="120" y="735" fill="#ffb9b9" font-size="24" font-weight="700">2–4 manager hours every week</text>
 
     <text x="630" y="290" fill="#8dd7ff" font-size="18" font-weight="700" letter-spacing="2.4">30-MINUTE WORKFLOW LEAK SCAN</text>
     <text x="630" y="340" fill="#ffffff" font-size="30" font-weight="700">The consulting conversation</text>
-    <text x="630" y="382" fill="#b9c6d9" font-size="20">We use one real process‎not a generic</text>
-    <text x="630" y="412" fill="#b9c6d9" font-size="20">technology pitch‎to define the fix.</text>
+    <text x="630" y="382" fill="#b9c6d9" font-size="20">We use one real process—not a generic</text>
+    <text x="630" y="412" fill="#b9c6d9" font-size="20">technology pitch—to define the fix.</text>
     <g>
-      <rect x="622" y="454" width="356" height="54" rx="14" fill="#183653"/><text x="645" y="488" fill="#ffffff" font-size="16"><tspan fill="#8dd7ff" font-weight="700">01</tspan><tspan dx="10">Show the current steps</tspan></text>
-      <rect x="622" y="520" width="356" height="54" rx="14" fill="#183653"/><text x="645" y="554" fill="#ffffff" font-size="16"><tspan fill="#8dd7ff" font-weight="700">02</tspan><tspan dx="10">Find delays and duplicate work</tspan></text>
-      <rect x="622" y="586" width="356" height="54" rx="14" fill="#183653"/><text x="645" y="620" fill="#ffffff" font-size="16"><tspan fill="#8dd7ff" font-weight="700">03</tspan><tspan dx="10">Choose smallest useful change</tspan></text>
-      <rect x="622" y="652" width="356" height="54" rx="14" fill="#183653"/><text x="645" y="686" fill="#ffffff" font-size="16"><tspan fill="#8dd7ff" font-weight="700">04</tspan><tspan dx="10">Define first-version scope</tspan></text>
+      <rect x="622" y="448" width="356" height="58" rx="14" fill="#183653"/><text x="645" y="470" fill="#ffffff" font-size="15"><tspan fill="#8dd7ff" font-weight="700">01</tspan><tspan x="686" dy="0">Show the current</tspan><tspan x="686" dy="18">steps</tspan></text>
+      <rect x="622" y="516" width="356" height="66" rx="14" fill="#183653"/><text x="645" y="540" fill="#ffffff" font-size="15"><tspan fill="#8dd7ff" font-weight="700">02</tspan><tspan x="686" dy="0">Find delays and</tspan><tspan x="686" dy="18">duplicate work</tspan></text>
+      <rect x="622" y="592" width="356" height="66" rx="14" fill="#183653"/><text x="645" y="616" fill="#ffffff" font-size="15"><tspan fill="#8dd7ff" font-weight="700">03</tspan><tspan x="686" dy="0">Choose the smallest</tspan><tspan x="686" dy="18">useful change</tspan></text>
+      <rect x="622" y="668" width="356" height="58" rx="14" fill="#183653"/><text x="645" y="690" fill="#ffffff" font-size="15"><tspan fill="#8dd7ff" font-weight="700">04</tspan><tspan x="686" dy="0">Define first-version</tspan><tspan x="686" dy="18">scope</tspan></text>
     </g>
-    <rect x="642" y="729" width="316" height="40" rx="20" fill="url(#consult)"/><text x="800" y="756" text-anchor="middle" fill="#04111f" font-size="19" font-weight="700">Leave with a practical next step</text>
+    <rect x="642" y="738" width="316" height="40" rx="20" fill="url(#consult)"/><text x="800" y="765" text-anchor="middle" fill="#04111f" font-size="18" font-weight="700">Leave with a practical next step</text>
 
     <text x="1140" y="290" fill="#a8e6cf" font-size="20" font-weight="700" letter-spacing="3">AFTER</text>
     <text x="1140" y="340" fill="#ffffff" font-size="34" font-weight="700">The practical first version</text>
