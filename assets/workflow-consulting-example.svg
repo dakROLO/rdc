@@ -26,7 +26,7 @@
     </g>
     <text x="120" y="748" fill="#ffb9b9" font-size="23" font-weight="700">2–4 manager hours every week</text>
 
-    <text x="630" y="290" fill="#8dd7ff" font-size="18" font-weight="700" letter-spacing="2.4">30-MINUTE WORKFLOW LEAK SCAN</text>
+    <text x="800" y="282" text-anchor="middle" fill="#8dd7ff" font-size="16" font-weight="700" letter-spacing="2"><tspan x="800" dy="0">30-MINUTE WORKFLOW</tspan><tspan x="800" dy="19">LEAK SCAN</tspan></text>
     <text x="630" y="336" fill="#ffffff" font-size="28" font-weight="700"><tspan x="630" dy="0">The consulting</tspan><tspan x="630" dy="32">conversation</tspan></text>
     <text x="630" y="406" fill="#b9c6d9" font-size="18"><tspan x="630" dy="0">We use one real process—not a</tspan><tspan x="630" dy="24">generic technology pitch—to</tspan><tspan x="630" dy="24">define the fix.</tspan></text>
     <g>
