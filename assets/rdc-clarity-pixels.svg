@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="245" height="305" viewBox="930 20 245 305" role="img" aria-labelledby="title desc">
+  <title id="title">Royal Digital Clarity logo</title>
+  <desc id="desc">Custom blue RDC wordmark with orange pixels emerging from the D.</desc>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#11D9EA"/><stop offset=".48" stop-color="#079EFF"/><stop offset="1" stop-color="#116CFF"/></linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC528"/><stop offset="1" stop-color="#FF7200"/></linearGradient>
+    
+    <filter id="blueGlow" x="-20%" y="-25%" width="140%" height="150%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.04  0 0 0 0 0.58  0 0 0 0 1  0 0 0 .52 0"/>
+    </filter>
+    <filter id="orangeGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 1  0 0 0 0 .35  0 0 0 0 0  0 0 0 .58 0"/>
+    </filter>
+  </defs>
+  <path d="" fill="#119DFF" opacity=".58" filter="url(#blueGlow)"/><path d="M 1061 61 L 1125 61 L 1125 125 L 1060 125 Z M 969 126 L 1041 126 L 1041 198 L 970 198 Z M 1042 215 L 1108 215 L 1108 281 L 1042 281 Z M 740 688 L 762 689 L 772 693 L 781 700 L 780 705 L 771 715 L 768 715 L 758 708 L 740 707 L 730 712 L 722 724 L 723 745 L 730 754 L 740 759 L 755 759 L 765 755 L 765 744 L 746 743 L 747 726 L 785 727 L 785 764 L 779 769 L 762 776 L 737 777 L 726 774 L 716 768 L 708 760 L 702 748 L 700 730 L 706 710 L 720 695 Z M 566 689 L 611 690 L 626 695 L 638 705 L 645 716 L 647 740 L 641 756 L 632 766 L 622 772 L 606 776 L 566 776 Z M 665 689 L 684 690 L 683 776 L 664 776 L 663 695 Z M 812 689 L 821 689 L 824 691 L 823 776 L 805 776 L 803 774 L 803 691 Z M 840 689 L 913 690 L 913 708 L 886 708 L 885 776 L 866 775 L 866 708 L 840 708 Z M 949 689 L 968 690 L 1000 768 L 1004 773 L 1003 776 L 984 776 L 975 757 L 939 757 L 931 776 L 912 775 L 912 771 L 915 768 L 928 738 L 928 734 L 932 729 Z M 1018 689 L 1037 690 L 1037 758 L 1079 758 L 1079 776 L 1017 775 Z M 625 740 L 625 723 L 618 713 L 607 708 L 585 708 L 585 758 L 612 757 L 620 751 Z M 947 740 L 968 741 L 968 737 L 958 715 L 953 723 Z" fill="#FF7200" opacity=".70" filter="url(#orangeGlow)"/>
+  <path d="" fill="url(#blue)" fill-rule="evenodd"/>
+  <path d="M 1061 61 L 1125 61 L 1125 125 L 1060 125 Z M 969 126 L 1041 126 L 1041 198 L 970 198 Z M 1042 215 L 1108 215 L 1108 281 L 1042 281 Z M 740 688 L 762 689 L 772 693 L 781 700 L 780 705 L 771 715 L 768 715 L 758 708 L 740 707 L 730 712 L 722 724 L 723 745 L 730 754 L 740 759 L 755 759 L 765 755 L 765 744 L 746 743 L 747 726 L 785 727 L 785 764 L 779 769 L 762 776 L 737 777 L 726 774 L 716 768 L 708 760 L 702 748 L 700 730 L 706 710 L 720 695 Z M 566 689 L 611 690 L 626 695 L 638 705 L 645 716 L 647 740 L 641 756 L 632 766 L 622 772 L 606 776 L 566 776 Z M 665 689 L 684 690 L 683 776 L 664 776 L 663 695 Z M 812 689 L 821 689 L 824 691 L 823 776 L 805 776 L 803 774 L 803 691 Z M 840 689 L 913 690 L 913 708 L 886 708 L 885 776 L 866 775 L 866 708 L 840 708 Z M 949 689 L 968 690 L 1000 768 L 1004 773 L 1003 776 L 984 776 L 975 757 L 939 757 L 931 776 L 912 775 L 912 771 L 915 768 L 928 738 L 928 734 L 932 729 Z M 1018 689 L 1037 690 L 1037 758 L 1079 758 L 1079 776 L 1017 775 Z M 625 740 L 625 723 L 618 713 L 607 708 L 585 708 L 585 758 L 612 757 L 620 751 Z M 947 740 L 968 741 L 968 737 L 958 715 L 953 723 Z" fill="url(#orange)" fill-rule="evenodd"/>
+  <path d="" fill="#F7F9FC" fill-rule="evenodd"/>
+</svg>

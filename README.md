@@ -43,6 +43,21 @@ Azure build settings:
 - API location: blank
 - Output location: blank
 
+## Operational Clarity subsite
+
+The `feature/operational-clarity-subsite` branch is a self-contained static
+subsite intended for a separate Azure Static Web App. It includes:
+
+- `index.html` — Operational Clarity landing page and engagement ladder
+- `questionnaire.html` — five-step, privacy-conscious pre-consultation intake
+- `workflow.html` — repeatable RDC delivery workflow and deliverable set
+- `assets/rdc-logo-luminous.png` — approved luminous RDC logo
+- `assets/rdc-pixel-d.svg` and `assets/rdc-clarity-pixels.svg` — brand accents
+
+Recommended Azure build settings remain app location `/`, with API and output
+locations left blank. The questionnaire currently runs entirely in the browser:
+it does not upload or store answers or attachments.
+
 ## Current focus areas
 
 - Workflow discovery and process mapping
