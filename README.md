@@ -1,5 +1,6 @@
 # Royal Digital Clarity Website
 
+
 Official website for **Royal Digital Clarity (RDC)**, a digital transformation consulting business focused on practical process improvement, Microsoft 365, Power Platform, data, automation, and AI adoption.
 
 ## Live site
