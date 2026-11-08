@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Website Project Intake | Royal Digital Clarity</title>
+<meta name="description" content="Tell Royal Digital Clarity about your website, provider, costs, customers, and goals before your website redesign project.">
+<link rel="icon" href="assets/favicon.ico"><link rel="stylesheet" href="styles.css">
+<style>
+.website-intake{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:28px;padding:10px 0 100px}
+.intake-card,.intake-help,.intake-results{border:1px solid var(--line);border-radius:22px;background:#0b1e35;box-shadow:var(--shadow)}
+.intake-card{padding:clamp(22px,4vw,44px);min-width:0}.intake-help{padding:26px;height:max-content;position:sticky;top:105px}.intake-help p,.intake-help li{color:#b6c7d8}
+.intake-group{padding:28px 0;border-top:1px solid var(--line)}.intake-group:first-of-type{padding-top:0;border:0}
+.intake-group h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:12px}.intake-group>p:not(.step-label){color:#aebed1}
+.intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:19px}.intake-field{display:flex;flex-direction:column;gap:7px}.intake-field.full{grid-column:1/-1}
+.intake-field label,.intake-legend{font-weight:720}
+.intake-field input,.intake-field textarea,.intake-field select{background:#071426;color:#f7f9fc;border:1px solid #35506f;border-radius:11px;padding:13px 14px;font:inherit;min-width:0;width:100%}
+.intake-field textarea{min-height:105px;resize:vertical}.intake-field input:focus,.intake-field textarea:focus,.intake-field select:focus{outline:2px solid var(--cyan);outline-offset:2px}
+.intake-field small{color:#8fa5bd}.intake-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 22px}
+.intake-checks label,.intake-consent{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #29445f;border-radius:12px;background:#09182d}
+.intake-checks input,.intake-consent input{flex:0 0 auto;width:18px;height:18px;accent-color:var(--orange)}
+.intake-consent{margin:25px 0 0;padding:16px}.required{color:#ffb680}
+.intake-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.intake-results{display:none;grid-column:1/-1;padding:clamp(22px,4vw,45px)}
+.intake-results.active{display:block}.intake-results p{color:#bdcad8}.intake-results pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,Consolas,monospace;border:1px solid #35506f;background:#071426;border-radius:12px;padding:20px;max-height:600px;overflow:auto;color:#dbe8f4}
+.intake-results a:not(.button){color:var(--cyan)}.intake-feedback{color:var(--cyan);min-height:20px}
+@media(max-width:860px){.website-intake{grid-template-columns:1fr}.intake-help{position:static;order:-1}}
+@media(max-width:560px){.intake-grid,.intake-checks{grid-template-columns:1fr}.intake-field.full{grid-column:auto}.intake-actions>*{width:100%}}
+</style>
+</head>
+<body>
+<header class="site-header"><nav class="nav shell" aria-label="Main navigation">
+<a class="brand" href="index.html"><img src="assets/rdc-logo-luminous.png" alt="Royal Digital Clarity"></a>
+<div class="nav-links"><a href="website-lift.html">Website Lift</a><a href="index.html">RDC home</a><a class="nav-portal" href="https://portal.royaldigitalclarity.com/">Customer portal</a><a class="nav-cta" href="mailto:dakota@royaldigitalclarity.com">Contact RDC</a></div>
+</nav></header>
+<main>
+<section class="page-hero shell"><a class="crumb" href="website-lift.html">← Website Lift</a><p class="eyebrow">Pre-project discovery</p><h1>Let's get ahead of your website project.</h1><p class="lede">Tell us about the website you have, who manages it, what you're paying, and what you want the next one to accomplish. About 5–8 minutes—it's fine if you don't know every answer.</p></section>
+<div class="shell website-intake">
+<form id="website-project-intake" class="intake-card">
+  <section class="intake-group" aria-labelledby="business-title"><p class="step-label">01 · Business</p><h2 id="business-title">First, tell us who you are.</h2>
+  <div class="intake-grid">
+    <div class="intake-field"><label for="business">Business name <span class="required">*</span></label><input id="business" name="business" required autocomplete="organization" maxlength="140"></div>
+    <div class="intake-field"><label for="contact">Your name <span class="required">*</span></label><input id="contact" name="contact" required autocomplete="name" maxlength="100"></div>
+    <div class="intake-field"><label for="email">Business email <span class="required">*</span></label><input id="email" name="email" type="email" required autocomplete="email" maxlength="180"></div>
+    <div class="intake-field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="60"></div>
+    <div class="intake-field full"><label for="area">Business location / service area</label><input id="area" name="area" placeholder="Example: Port Orchard, Gig Harbor, Kitsap County" maxlength="180"></div>
+    <div class="intake-field full"><label for="services">What does your business do? <span class="required">*</span></label><textarea id="services" name="services" required maxlength="1400" placeholder="Your main services or products"></textarea></div>
+  </div></section>
+
+  <section class="intake-group" aria-labelledby="current-title"><p class="step-label">02 · Current website and costs</p><h2 id="current-title">What are you working with?</h2><p>Unknown is an acceptable answer. Please don't share account passwords or billing details.</p>
+  <div class="intake-grid">
+    <div class="intake-field full"><label for="site">Current website address</label><input id="site" name="site" inputmode="url" placeholder="example.com, or no current site" maxlength="220"></div>
+    <div class="intake-field"><label for="provider">Who built / manages it?</label><input id="provider" name="provider" placeholder="Agency, freelancer, self, not sure" maxlength="160"></div>
+    <div class="intake-field"><label for="platform">Website platform</label><select id="platform" name="platform"><option value="">Not sure</option><option>WordPress</option><option>Wix</option><option>Squarespace</option><option>GoDaddy</option><option>Shopify</option><option>Webflow</option><option>Other / custom</option><option>No website yet</option></select></div>
+    <div class="intake-field"><label for="currentcost">Current website + hosting cost</label><input id="currentcost" name="currentcost" placeholder="Example: $125/month or unknown" maxlength="100"></div>
+    <div class="intake-field"><label for="othercost">Other website / marketing spending</label><input id="othercost" name="othercost" placeholder="Ads, SEO, edits, plugins, etc." maxlength="160"></div>
+    <div class="intake-field"><label for="domain">Who controls your domain / DNS?</label><input id="domain" name="domain" placeholder="Business, existing provider, not sure" maxlength="150"></div>
+    <div class="intake-field"><label for="access">Do you have administrator access?</label><select id="access" name="access"><option value="">Not sure</option><option>Yes</option><option>Employee manages it</option><option>Agency holds access</option><option>No</option></select></div>
+    <div class="intake-field full"><label for="problems">What isn't working today?</label><textarea id="problems" name="problems" maxlength="1400" placeholder="Outdated look, slow on mobile, low visibility, hard to update, no inquiries, expensive maintenance..."></textarea></div>
+  </div></section>
+
+  <section class="intake-group" aria-labelledby="goals-title"><p class="step-label">03 · What success looks like</p><h2 id="goals-title">What do you want the website to do?</h2>
+    <p class="intake-legend">Select as many goals as apply.</p>
+    <div class="intake-checks">
+    <label><input name="goals" type="checkbox" value="More phone calls"> More phone calls</label>
+    <label><input name="goals" type="checkbox" value="More quote requests"> More quote requests</label>
+    <label><input name="goals" type="checkbox" value="Online appointments / booking"> Online appointments / booking</label>
+    <label><input name="goals" type="checkbox" value="Show up on Google"> Show up on Google</label>
+    <label><input name="goals" type="checkbox" value="Professional first impression"> Look more professional</label>
+    <label><input name="goals" type="checkbox" value="Sell online"> Sell online</label>
+    <label><input name="goals" type="checkbox" value="Easier updates"> Easier site updates</label>
+    <label><input name="goals" type="checkbox" value="Showcase projects"> Showcase work / projects</label></div>
+    <div class="intake-grid">
+      <div class="intake-field full"><label for="success">What would make this website a success in the next 6–12 months? <span class="required">*</span></label><textarea id="success" name="success" required maxlength="1600" placeholder="Example: Homeowners can find our service, understand pricing, and request a quote online."></textarea></div>
+      <div class="intake-field full"><label for="customer">Who is your ideal customer?</label><textarea id="customer" name="customer" maxlength="1100" placeholder="Homeowners, local businesses, out-of-town customers, etc."></textarea></div>
+      <div class="intake-field"><label for="marketing">How do people find you today?</label><input id="marketing" name="marketing" maxlength="200" placeholder="Word of mouth, Google, Facebook..."></div>
+      <div class="intake-field"><label for="google">Google Business Profile</label><select id="google" name="google"><option value="">Not sure</option><option>We manage our profile</option><option>Someone else manages it</option><option>We don't have one</option></select></div>
+      <div class="intake-field full"><label for="inspiration">Websites or competitors you like</label><textarea id="inspiration" name="inspiration" maxlength="1200" placeholder="URLs or business names, and what you like about them"></textarea></div>
+    </div>
+  </section>
+
+  <section class="intake-group" aria-labelledby="project-title"><p class="step-label">04 · Project fit</p><h2 id="project-title">Let's understand the work ahead.</h2>
+  <div class="intake-grid">
+    <div class="intake-field"><label for="package">Package that interests you</label><select id="package" name="package"><option value="">Help me choose</option><option value="Essential">Essential — $2,495+ / $99 per month</option><option value="Growth">Growth — $4,495+ / $249 per month</option><option value="Premium">Premium — $7,495+ / $449 per month</option><option value="Hosting only">Hosting only — $39+/month</option><option>Not sure yet</option></select></div>
+    <div class="intake-field"><label for="timeline">Preferred launch timing</label><select id="timeline" name="timeline"><option value="">Flexible / not sure</option><option>As soon as feasible</option><option>In 1–2 months</option><option>In 3–6 months</option><option>More than 6 months</option><option>Specific deadline</option></select></div>
+    <div class="intake-field"><label for="budget">Initial project budget</label><select id="budget" name="budget"><option value="">Prefer to discuss</option><option>Under $2,500</option><option>$2,500–$5,000</option><option>$5,000–$8,000</option><option>More than $8,000</option><option>Not sure</option></select></div>
+    <div class="intake-field"><label for="assets">Do you have content and images?</label><select id="assets" name="assets"><option value="">Some / not sure</option><option>Most content is ready</option><option>Need help with writing/photos</option><option>Starting fresh</option></select></div>
+    <div class="intake-field full"><label for="features">Specific features you need</label><textarea id="features" name="features" maxlength="1200" placeholder="Bookings, contact forms, galleries, store, online payments, FAQs..."></textarea></div>
+    <div class="intake-field full"><label for="notes">Anything else RDC should know?</label><textarea id="notes" name="notes" maxlength="1600" placeholder="Current contract timing, launch deadline, any special requirements..."></textarea></div>
+  </div>
+  <label class="intake-consent"><input type="checkbox" id="understand" required><span><strong>How this test intake works:</strong> your answers stay in your browser until you choose to email them. After reviewing your summary, press Email RDC and send the message from your own email app. The website does not automatically upload or save your information. <span class="required">*</span></span></label>
+  <div class="intake-actions"><button class="button primary" type="submit">Review my website brief</button></div>
+  </section>
+</form>
+<aside class="intake-help"><h3>Why these questions?</h3><p>They help us understand your business before choosing any platform or quoting a rebuild.</p><ul><li>Who manages what you already own?</li><li>What are you paying today?</li><li>Which outcomes matter most?</li><li>What should be ready before development?</li></ul><p>🔒 Please do not include passwords, customer personal data, payment details, or private documents.</p><a class="text-link" href="website-lift.html#packages">See the packages →</a></aside>
+<section id="intake-results" class="intake-results" tabindex="-1">
+  <p class="step-label">Your discovery brief</p><h2>Ready for a productive first conversation.</h2>
+  <p><strong>Your answers have not been automatically submitted.</strong> Email RDC opens a draft in your email app; please press Send there. If you don't have an email app configured, copy or download the summary and send it to <a href="mailto:dakota@royaldigitalclarity.com">dakota@royaldigitalclarity.com</a>.</p>
+  <pre id="intake-summary" aria-label="Your website discovery answers"></pre>
+  <div class="intake-actions"><a id="email-summary" class="button primary" href="mailto:dakota@royaldigitalclarity.com">Email RDC</a>
+  <button type="button" class="button secondary" id="copy-summary">Copy summary</button>
+  <button type="button" class="button secondary" id="download-summary">Download summary</button>
+  <button type="button" class="button secondary" id="edit-answers">Edit answers</button></div>
+  <p id="result-feedback" class="intake-feedback" aria-live="polite"></p>
+</section>
+</div>
+</main>
+<footer><div class="shell footer-inner"><img src="assets/rdc-logo-luminous.png" alt="Royal Digital Clarity"><p>© <span id="year"></span> Royal Digital Clarity</p><div class="footer-links"><a href="website-lift.html">Website Lift</a><a href="mailto:dakota@royaldigitalclarity.com">dakota@royaldigitalclarity.com</a></div></div></footer>
+<script src="script.js"></script><script src="website-intake.js"></script></body></html>
