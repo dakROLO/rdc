@@ -1,0 +1,50 @@
+[
+  {
+    "id": "business",
+    "title": "Tell us about your business",
+    "hint": "Business name, what you do, and where you serve customers. Local, remote, or both?",
+    "required": true
+  },
+  {
+    "id": "audience",
+    "title": "Who should the website attract?",
+    "hint": "Your ideal customer, what they need help with, and the 1\u20133 services to feature.",
+    "required": true
+  },
+  {
+    "id": "action",
+    "title": "What should visitors do next?",
+    "hint": "Choose a main action: request a quote, book, call, message, buy, or other. Who receives requests, and what happens next?",
+    "required": true
+  },
+  {
+    "id": "essentials",
+    "title": "What must the first demo get right?",
+    "hint": "Up to three essentials: service details, prices or quote process, common questions, or examples of your work.",
+    "required": true
+  },
+  {
+    "id": "style",
+    "title": "What should it look and feel like?",
+    "hint": "Your logo, colors, approved photos, or 1\u20132 websites you like. No assets yet? Describe the style.",
+    "required": false
+  },
+  {
+    "id": "existing",
+    "title": "What do you already use?",
+    "hint": "Your current site and any email, calendar, booking, customer/job management, or payment tools to keep.",
+    "required": false
+  },
+  {
+    "id": "timing",
+    "title": "What are your timing and budget expectations?",
+    "hint": "Target date. Optional: setup budget and comfortable monthly cost. \u201cNot sure\u201d is welcome.",
+    "required": false
+  },
+  {
+    "id": "privacy",
+    "title": "Any special features or private details?",
+    "hint": "Mention payments, customer sign-in, private documents, sensitive information, or anything to keep off the site. Share no private records.",
+    "required": false
+  }
+]

@@ -66,3 +66,11 @@ it does not upload or store answers or attachments.
 - Power Apps, Power Automate, and Power BI solutions
 - AI readiness and practical automation
 - Digital adoption and operational improvement
+
+## Delivery guide redesign candidate
+
+The redesign is on `feature/delivery-guide-redesign`, for the existing test site at `https://test.royaldigitalclarity.com/`. Its deployment source is `feature/operational-clarity-subsite` using the salmon-flower resource. Production `main` is not promoted.
+
+The sample portal is an actual static export from the private portal candidate and is packaged at `/portal/`. It has no live sign-in, APIs, or customer data. The eight-question website intake supports review, edit, copy, download, and email draft, with no automatic collection.
+
+Run `node scripts/build-static.mjs --test` and deploy `dist/`. See `docs/REDESIGN-RELEASE.md` for source baselines, verification boundaries, and complete rollback instructions.
