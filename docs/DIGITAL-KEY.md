@@ -1,36 +1,53 @@
-# RDC Digital Key — test feature, 2026-11-19
+# RDC Connect — team directory and digital business cards
 
-## Purpose
-A mobile-first, first-party digital business card for Dakota King. NFC tap and a printed QR should both open the same **customer-owned URL** `https://royaldigitalclarity.com/connect/` after production approval. During design review, use `https://test.royaldigitalclarity.com/connect/`.
+Updated November 19, 2026. Test release 2026.11.19-connect-team-r3.
+
+## URL architecture
+
+| URL | Purpose | NFC/QR target |
+| --- | --- | --- |
+| `https://royaldigitalclarity.com/connect/` | Public Meet the Team directory, multiple people over time | General RDC QR only |
+| `https://royaldigitalclarity.com/connect/dakota/` | Dakota King's personal contact, booking and service landing page | **Dakota's personal NFC card and QR** |
+| `https://royaldigitalclarity.com/connect/dakota/dakota-king.vcf` | Dakota's downloadable vCard | Save-contact button |
+| `https://royaldigitalclarity.com/connect/dakota-king.vcf` | Historic vCard URL retained for backwards compatibility | Do not use for new cards |
+
+The corresponding test URLs are `https://test.royaldigitalclarity.com/connect/` and `https://test.royaldigitalclarity.com/connect/dakota/`. Production `main` is not changed by this feature and is not verified to serve these paths. A physical NFC/QR should never encode the test URL.
+
+**Migration decision**: The original personal page at `/connect/` becomes a team index. Anyone who previously encoded that URL into a physical card would now land on the team directory. Personal cards must encode the member URL (`/connect/dakota/`) instead. Both URLs are owned by RDC, not a card vendor.
 
 ## Implementation
-- `/connect/index.html`: branded page, photo, save-contact action, booking, service discovery, website intake and labeled sample workspace
-- `/connect/connect.css`: standalone responsive styling aligned with the redesign's navy, blue and yellow palette; reduced-motion and keyboard-focus support
-- `/connect/connect.js`: first-party share action (native share, copy fallback)
-- `/connect/dakota-king.vcf`: vCard 3.0, name/company/email/website, no unverified personal phone
-- `scripts/build-static.mjs --test`: explicit `connect` directory allowlist and `/connect` to `/connect/` redirect; same test-only CSP and noindex boundary
 
-No analytics, forms, lead-storage backend, third-party fonts, card-vendor redirect, identity calls, tracking SDK, or user-data collection were added. Contact and email/Bookings links require the visitor's own action.
+- `connect/index.html` and `connect/team.css`: responsive, accessible team hub with one real verified member. Cards are laid out by reusable `.people-grid` and `.person-card` styles and will expand to multiple columns.
+- `connect/dakota/index.html`: existing fully featured personal digital card preserved, now with team breadcrumb, direct download, contact, mail, Bookings and linked services.
+- `connect/connect.css`: shared brand and profile styles; `connect/connect.js`: shares the current page's path rather than hardcoding the team directory, so new profile pages share correctly.
+- `connect/dakota/dakota-king.vcf`: URL inside the vCard goes to the personal page, without unverified personal phone number.
+- `scripts/build-static.mjs --test`: packs only the approved `connect` directory, enables `/connect` and `/connect/dakota` normalization, retains global CSP, `noindex`, API denial and portal isolation.
 
-## Test checklist
-1. Confirm `node scripts/build-static.mjs --test` succeeds and only new public files appear in `dist/connect`.
-2. Visit `https://test.royaldigitalclarity.com/connect/` on an iPhone and desktop. Verify brand, photo, contrast, layout, tab order, reduced motion.
-3. Verify `/connect` redirects to `/connect/`, and the 404 and API denial remain intact.
-4. Download `dakota-king.vcf` on iPhone/Android, inspect contact name, business, email, website, and absence of a phone number.
-5. Test Bookings, mailto, native share/copy fallback, service, website-intake and labeled portal sample links.
-6. Confirm robots header/noindex, CSP, `version.json`, and no console/network errors.
-7. Verify main production and the real portal remain unchanged.
+No tracking, forms backend, CRM, analytics, card-service redirect, or new third-party dependencies are added. Team biographies and roles reflect public owner-approved content only. No imaginary staff or empty profiles are published.
 
-## Promotion and card order
-The QR and NFC chip **must point to the stable production URL**, not the test site or a vendor-hosted profile. DO NOT order/activate or share the QR publicly until production is approved, `/connect/` is deployed and tested, and any preview banner + `noindex` are removed for production. A future site change can update the contact information without reprinting the card.
+## Add a team member (repeatable process)
 
-Request one reusable custom NFC card (metal or acrylic), URL encoding to `https://royaldigitalclarity.com/connect/`, a scannable QR with the same destination, and no mandatory vendor profile or recurring plan. Test a sample before ordering a batch.
+1. Get **explicit publication approval** for the person's name, preferred title, services, professional email, public photo and booking link. Do not include personal phone, home address, or private details by default.
+2. Create `connect/<slug>/index.html` by copying the existing member-page layout. Update the unique slug, page title, meta description, canonical, Open Graph URL, portrait, profile copy, relevant CTAs and vCard download. Keep the team breadcrumb.
+3. Add `connect/<slug>/<slug>.vcf` with the approved professional contact details and permanent `https://royaldigitalclarity.com/connect/<slug>/` URL. If no email or calendar is approved, remove those actions rather than leaving broken links.
+4. Add an accessible `.person-card` in `connect/index.html` within `.people-grid`, using the same photo, role, focus tags and `Meet <name>` link. No visual placeholder employees.
+5. Add a trailing-slash redirect for the person's exact path to the test build's static web app routing if necessary, and keep all public files in the explicit `connect` allowlisted directory.
+6. Test on iPhone and Android: link, profile, vCard, share, calendar, email, keyboard navigation, mobile layout, noindex and CSP. Verify card scan on physical hardware. Review branch and deploy to test only.
+7. Approve and explicitly promote the specific public files in a separate production release, with production metadata and security reviews. Never promote the sample-only portal as production.
+8. After the production route is live, program the individual NFC and engraved QR to that permanent URL. Do not target the vendor profile or a staging hostname.
+
+## Acceptance checklist
+
+- `node scripts/build-static.mjs --test` passes, including safe `dist/connect/dakota/index.html` packaging
+- Team index renders one Dakota profile (not invented employees) linking to the person page
+- Dakota page keeps original personal card, photo, Save Contact button, Bookings, contact and service links
+- Share action copies/shares the **page currently open**: team index on `/connect/`, Dakota card on `/connect/dakota/`
+- Both slashless routes redirect to their canonical slash versions
+- Direct vCard opens as contact on iOS and Android; no personal phone/unknown data
+- No unapproved vendor requests, secrets, login/identity, telemetry, or customer data
+- Test remains noindex; `main` and live customer portal unchanged
+- Production remains a distinct reviewed release; production QR/NFC is **not** activated until it is live
 
 ## Rollback
-This feature does not touch production, customer data, schema, identity or DNS. Revert the feature commit(s) from the test deployment branch through a new commit, then verify the test workflow and no longer served `/connect/` route. Preserve `rollback/pre-delivery-redesign-2026-11-08`. This incremental change is independent of the full redesign rollback documented in `docs/REDESIGN-RELEASE.md`.
 
-## Remaining work
-- Verify deployment and actual physical iPhone/Android NFC + QR handoff.
-- Approve public contact details/title and visual design.
-- Explicitly promote public files and production CSP/metadata through a separate reviewed release; do not promote the sample portal.
-- Optional future first-party privacy-respecting measurement requires an explicit retention and notice decision.
+Use a new commit that reverts the team-directory feature from `feature/operational-clarity-subsite` and let the test workflow redeploy. Preserve the original redesign rollback branch (`rollback/pre-delivery-redesign-2026-11-08`). This feature changes only static files and test build packaging, not databases, live identity, DNS or production. The full redesign release and rollback plan remains in `docs/REDESIGN-RELEASE.md`.
