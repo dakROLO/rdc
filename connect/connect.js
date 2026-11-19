@@ -5,10 +5,10 @@ const year=document.getElementById("year");
 if(year)year.textContent=String(new Date().getFullYear());
 if(shareButton){
   shareButton.addEventListener("click",async()=>{
-    const url=new URL("/connect/",window.location.origin).href;
+    const url=new URL(window.location.pathname,window.location.origin).href;
     try{
       if(navigator.share){
-        await navigator.share({title:"Connect with Dakota | Royal Digital Clarity",text:"Here's my RDC digital business card.",url});
+        await navigator.share({title:document.title,text:"Connect with Royal Digital Clarity.",url});
         if(shareStatus)shareStatus.textContent="Shared through your device.";
       }else if(navigator.clipboard&&window.isSecureContext){
         await navigator.clipboard.writeText(url);
