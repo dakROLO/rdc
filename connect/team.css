@@ -5,35 +5,35 @@
 .team-hero-copy{position:relative;z-index:1}
 .team-hero h1{font-size:clamp(4.4rem,8vw,8rem);font-weight:650;line-height:1;margin-bottom:34px}
 .team-lead{max-width:575px;font-size:18px;line-height:1.9;color:#bfd0e2}
-.team-scroll-link{display:inline-flex;gap:20px;align-items:center;margin-top:16px;padding:13px 0;text-decoration:none;border-bottom:1px solid #6689a5;font-size:13px;font-weight:700;color:#ffd43b}
+.team-scroll-link{display:inline-flex;gap:20px;align-items:center;margin-top:16px;padding:13px 0;text-decoration:none;border-bottom:1px solid #6689a5;font-size:13px;font-weight:700;color:#eda646}
 .team-scroll-link span{font-size:22px}
-.team-scroll-link:hover{border-color:#ffd43b}
+.team-scroll-link:hover{border-color:#eda646}
 .team-hero-art{height:350px;position:relative;display:grid;place-items:center}
 .team-art-ring{position:absolute;border-radius:50%;border:1px solid #7fadd255;inset:22px}
 .team-art-ring.ring-b{inset:65px;border-style:dashed;transform:rotate(20deg)}
-.team-art-ring.ring-c{inset:110px;border:2px solid #fbd64a66;background:#1455d911}
+.team-art-ring.ring-c{inset:110px;border:2px solid #eda64666;background:#1455d911}
 .team-art-core{position:relative;width:115px;height:136px;display:grid;place-items:center;filter:drop-shadow(0 0 25px #2f80ec40)}
 .team-art-core img{object-fit:contain;width:110px;height:125px}
 .team-art-tag{position:absolute;top:35px;left:0;transform:rotate(-6deg);border:1px solid #6785a3;background:#102a47;padding:10px 17px;border-radius:5px;color:#e8f3ff;font-size:10px;font-weight:750;letter-spacing:.12em}
-.team-art-tag.tag-two{top:auto;left:auto;right:-5px;bottom:48px;transform:rotate(5deg);color:#11243b;background:#ffd43b;border-color:#ffd43b}
+.team-art-tag.tag-two{top:auto;left:auto;right:-5px;bottom:48px;transform:rotate(5deg);color:#11243b;background:#eda646;border-color:#eda646}
 .team-section{max-width:1180px;margin:auto;padding:104px 36px 115px}
 .team-section-heading{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:45px}
 .team-section-heading h2{font-size:clamp(2.8rem,5vw,4.9rem);margin:0}
 .team-section-heading>p{font-size:15px;color:#a8c0d6;line-height:1.9;max-width:425px;margin:0 0 8px}
 .people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;align-items:stretch}
 .person-card{min-width:0;display:flex;flex-direction:column;background:linear-gradient(152deg,#193956,#102741);border:1px solid #395673;border-radius:13px;overflow:hidden;transition:transform .2s,border-color .2s}
-.person-card:hover{border-color:#ffd43b;transform:translateY(-4px)}
+.person-card:hover{border-color:#eda646;transform:translateY(-4px)}
 .person-photo{position:relative;display:block;background:#173450;overflow:hidden;aspect-ratio:5/4}
 .person-photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%;transition:transform .3s}
 .person-card:hover .person-photo img{transform:scale(1.035)}
 .person-photo-label{position:absolute;top:16px;left:16px;font-size:9px;letter-spacing:.14em;font-weight:800;background:#081b30d9;color:#fff;padding:6px 10px;border:1px solid #7893ad;border-radius:4px}
 .person-details{padding:27px 27px 24px;display:flex;flex-direction:column;flex:1}
-.person-role{font-size:9px;color:#ffd43b;font-weight:750;letter-spacing:.13em;margin-bottom:10px}
+.person-role{font-size:9px;color:#eda646;font-weight:750;letter-spacing:.13em;margin-bottom:10px}
 .person-details h3{font-size:29px;margin-bottom:15px}
 .person-details>p:not(.person-role){color:#b8cee3;font-size:13px;line-height:1.85;flex:1}
 .person-specialties{display:flex;gap:7px;flex-wrap:wrap;padding:14px 0 22px}
 .person-specialties span{font-size:9px;color:#c5d6e5;border:1px solid #53708a;border-radius:100px;padding:5px 10px}
-.person-cta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:19px;border-top:1px solid #48647d;font-size:13px;font-weight:750;color:#ffd43b;text-decoration:none}
+.person-cta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:19px;border-top:1px solid #48647d;font-size:13px;font-weight:750;color:#eda646;text-decoration:none}
 .person-cta span{font-size:20px}
 .person-cta:hover{text-decoration:underline}
 .team-note{font-size:12px;color:#88a5c2;line-height:1.85;margin:28px 0 0}

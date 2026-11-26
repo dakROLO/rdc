@@ -8,7 +8,7 @@
   {
     "id": "audience",
     "title": "Who should the website attract?",
-    "hint": "Your ideal customer, what they need help with, and the 1\u20133 services to feature.",
+    "hint": "Your ideal customer, what they need help with, and the 1–3 services to feature.",
     "required": true
   },
   {
@@ -26,19 +26,19 @@
   {
     "id": "style",
     "title": "What should it look and feel like?",
-    "hint": "Your logo, colors, approved photos, or 1\u20132 websites you like. No assets yet? Describe the style.",
+    "hint": "Your logo, colors, approved photos, or 1–2 websites you like. No assets yet? Describe the style.",
     "required": false
   },
   {
     "id": "existing",
     "title": "What do you already use?",
-    "hint": "Your current site and any email, calendar, booking, customer/job management, or payment tools to keep.",
+    "hint": "Include your current website/domain if not entered above, and any email, calendar, booking, customer/job management, or payment tools to keep.",
     "required": false
   },
   {
     "id": "timing",
     "title": "What are your timing and budget expectations?",
-    "hint": "Target date. Optional: setup budget and comfortable monthly cost. \u201cNot sure\u201d is welcome.",
+    "hint": "Target date. Optional: setup budget and comfortable monthly cost. “Not sure” is welcome.",
     "required": false
   },
   {

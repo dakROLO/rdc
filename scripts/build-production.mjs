@@ -42,6 +42,7 @@ const edits=[
 ];
 async function rewrite(path){
  let s=await readFile(path,'utf8');
+ s=s.replace(/<div class="preview-ribbon"[^>]*>[\s\S]*?<\/div>/g,'');
  s=s.replace(/<div class="test-banner">[\s\S]*?<\/div>/g,'').replace(/<span>Test release [^<]*<\/span>/g,'');
  s=s.replace(/<meta name="robots" content="noindex, nofollow">/g,path.endsWith('/404.html')?'<meta name="robots" content="noindex, follow">':'<meta name="robots" content="index, follow">');
  s=s.replaceAll('https://test.royaldigitalclarity.com',domain).replaceAll('href="/portal/"','href="'+portal+'"').replaceAll('https://royaldigitalclarity.com/index.html"','https://royaldigitalclarity.com/"');
@@ -63,7 +64,7 @@ await writeFile(join(dist,'staticwebapp.config.json'),JSON.stringify(config,null
 const urls=['/','/website-lift.html','/website-intake.html','/workflow.html','/services.html','/about.html','/privacy.html','/questionnaire.html','/connect/','/connect/dakota/'];
 await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+domain+'/sitemap.xml\n');
 await writeFile(join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(p=>'<url><loc>'+domain+p+'</loc></url>').join('')+'</urlset>\n');
-await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.23-launch-r1',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.26-launch-r2',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html']){
  const s=await readFile(join(dist,p),'utf8');
  if(/test\.royaldigitalclarity\.com|class="test-banner"|href="\/portal\/"|Up to \d+ (?:core )?pages/i.test(s))throw Error('Unresolved release boundary: '+p);
