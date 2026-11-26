@@ -85,10 +85,10 @@ Deadline / trigger: ${value("deadline")}
 Investment range: ${value("budget")}
 Other notes: ${value("notes")}
 
-DIRECTIONAL CLARITY SCORES
+INFORMATION COVERAGE COUNTS
 Systems ${scores.systems}/5 · Workflow ${scores.workflow}/5 · Ownership ${scores.ownership}/5 · Visibility ${scores.visibility}/5
 
-Note: This intake is a conversation starter, not an audit or security certification.`;
+These counts show how many information prompts have answers, not operational health or readiness. This is a conversation starter, not an audit.`;
     document.querySelector("#summary").textContent=summary;
     form.hidden=true;
     document.querySelector(".aside-card").hidden=true;

@@ -1,0 +1,8 @@
+{
+  "repository": "dakROLO/rdc-customer-portal",
+  "source_commit": "79471ceb74ddae77c3883769c6e25d818043ff53",
+  "build_mode": "isolated-preview",
+  "base_path": "/portal",
+  "database_changes": false,
+  "live_api": false
+}
