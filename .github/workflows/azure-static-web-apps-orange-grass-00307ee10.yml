@@ -16,25 +16,11 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/build-production.mjs
-      - uses: actions/upload-artifact@v4
-        with:
-          name: rdc-production-static
-          path: dist/
-          if-no-files-found: error
-  deploy:
-    needs: package
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: rdc-production-static
-          path: dist
       - uses: Azure/static-web-apps-deploy@v1
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_GRASS_00307EE10 }}
           action: upload
-          production_branch: main
           app_location: dist
           api_location: ""
           output_location: ""

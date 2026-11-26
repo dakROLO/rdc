@@ -59,12 +59,19 @@ for(const f of ['demo-brief.js','redesign.js']){
  s=s.replaceAll('RDC WEBSITE DEMO BRIEF','RDC WEBSITE PROJECT BRIEF').replaceAll('RDC-Website-Demo-Brief.txt','RDC-Website-Project-Brief.txt').replaceAll('What must the first demo get right?','What must your website get right?').replaceAll('Explore the working sample from the customer workspace link.','Existing customers can open their separate workspace.');
  await writeFile(p,s);
 }
-const config={routes:[{route:'/connect/dakota',redirect:'/connect/dakota/',statusCode:301},{route:'/connect',redirect:'/connect/',statusCode:301},{route:'/portal',redirect:portal,statusCode:302},{route:'/portal/',redirect:portal,statusCode:302},{route:'/api/*',statusCode:404}],responseOverrides:{'404':{rewrite:'/404.html'}},globalHeaders:{'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"}};
+const config={routes:[{route:'/connect/dakota',redirect:'/connect/dakota/',statusCode:301},{route:'/connect',redirect:'/connect/',statusCode:301},{route:'/portal',redirect:portal,statusCode:302},{route:'/api/*',statusCode:404}],responseOverrides:{'404':{rewrite:'/404.html'}},globalHeaders:{'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"}};
+// SWA treats trailing-slash variants as duplicate routes.
+const normalizedRoutes=new Set();
+for(const rule of config.routes){
+ const route=rule.route.replace(/\/+$/,'')||'/';
+ if(normalizedRoutes.has(route))throw Error('Duplicate SWA route: '+route);
+ normalizedRoutes.add(route);
+}
 await writeFile(join(dist,'staticwebapp.config.json'),JSON.stringify(config,null,2)+'\n');
 const urls=['/','/website-lift.html','/website-intake.html','/workflow.html','/services.html','/about.html','/privacy.html','/questionnaire.html','/connect/','/connect/dakota/'];
 await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+domain+'/sitemap.xml\n');
 await writeFile(join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(p=>'<url><loc>'+domain+p+'</loc></url>').join('')+'</urlset>\n');
-await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.26-launch-r2',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.26-launch-r3',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html']){
  const s=await readFile(join(dist,p),'utf8');
  if(/test\.royaldigitalclarity\.com|class="test-banner"|href="\/portal\/"|Up to \d+ (?:core )?pages/i.test(s))throw Error('Unresolved release boundary: '+p);
