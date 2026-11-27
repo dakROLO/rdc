@@ -1,6 +1,6 @@
 # RDC launch release — November 23, 2026
 
-Public positioning and scope-based pricing are approved. Internal commercial eligibility and administration decisions are maintained in the private portal repository; they are not public release documentation.ng founding paid customers receive 35% off initial build only; free concept/assessment by personal invitation only. No blanket public entitlement. Prices indicative, complexity not page count. Private admin requirements: https://github.com/dakROLO/rdc-customer-portal/issues/6.
+Public positioning and scope-based pricing are approved. Internal commercial eligibility and administration decisions are maintained in the private portal repository; they are not public release documentation.
 
 ## Release boundary
 Production package: node scripts/build-production.mjs. The review source is shared with the separate test package; production build rewrites test banners, canonical and indexing settings, price/offer wording, and customer workspace links. It deliberately excludes the sample workspace and old downloadable questionnaire. Test build stays noindex and sample-only. Do not deploy repository root, private source, credentials, internal docs or sample portal. Production action builds/validates on PR; deploy only from main. Existing live portal is unchanged. No payment activation or public claim of LLC/DBA registration before confirmation.
