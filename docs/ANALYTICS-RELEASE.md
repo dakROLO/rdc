@@ -1,0 +1,19 @@
+# RDC Analytics, Privacy & SEO — 2026-11-27 candidate
+
+## Configuration and boundaries
+- Existing GA4 web stream G-V41994JW12; Search Console and Google Ads linked by owner. No credentials or Measurement Protocol secret required.
+- Basic consent mode: Google tag not loaded until analytics opt-in, reject is equal prominence, preferences accessible from footer. 180-day preference; Global Privacy Control overrides; revoke disables GA and reloads, clears accessible analytics cookies. No advertising consent, remarketing or enhanced conversions.
+- Production apex only. Test package uses local rdc:analytics-test events and unchanged self-only CSP. Connect cards, 404, private portal and invitations excluded. Production CSP permits only required Analytics/Google tag hosts, not broad Google or advertising hosts.
+- Fixed event names; no input values, email URLs, attachment names, private tokens or form contents. Page location restricted to canonical origin/path; referrer blank. Unknown query keys or unsafe values/fragments block tag initialization. Known campaign parameters may remain in browser URLs; Google tag can process attribution identifiers. Validate actual outgoing requests before approval. No unreviewed custom dimensions.
+- Enhanced measurement MUST be off in GA4, email redaction on, URL query redaction configured. Verify Google tag destinations and automatic event settings; no unexpected Ads destination/advertising data. Check Google signals off and retention set as approved.
+- page_view, service_view, intake_start, intake_complete, assessment_start, assessment_complete, booking_click, email_click, phone_click, brief_download, brief_email_draft. Once per page per event. These are engagement signals only, not verified leads. Forms are browser-only; email drafts and Microsoft Bookings clicks cannot confirm receipt/appointment. Never mark them as primary Ads conversions. No generate_lead or booking_complete until verified server/provider evidence, consent and deduplication design. Review preexisting Ads conversion goals and remove URL-based false conversions before campaign activation.
+- Existing sitemap and canonical checks remain in build. Verify live sitemap submission, indexable apex pages and test noindex via Search Console. Keep campaign paused.
+
+## Acceptance
+1. Run node scripts/build-production.mjs and node scripts/build-static.mjs --test independently. Check packages, CSP, sitemap, no sample portal in production.
+2. Deploy test preview via PR to develop only after reviewing branch differences; verify banner keyboard/mobile, reject, accept, customize, persistence, reload, revocation, GPC, unsafe URL, blocked storage, events and no Google requests. Confirm questionnaire copy/download/email remains functional.
+3. Review consent and privacy text with owner; check GA enhanced measurement/redaction/tag destinations and Ads status. Validate production with browser network inspection and Tag Assistant after approval: no requests/cookies before consent or after reject, expected GA only after consent, no sensitive request parameters, no Ads/personalization cookies, no CSP errors. Verify Realtime and DebugView, actual sitemap and indexing. Test both hostnames and redirects.
+4. True lead conversion remains blocked on reliable intake receipt and Bookings confirmation integration. Do not enable automated bidding on engagement-only events. Record owner acceptance and actual evidence before enabling paid traffic.
+5. Rollback: revert this release through normal PR and redeploy; no portal, database, DNS, billing or Google account mutation. Previously collected data is not deleted by rollback.
+
+References: https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic ; https://developers.google.com/tag-platform/security/guides/csp ; https://support.google.com/analytics/answer/6366371 .

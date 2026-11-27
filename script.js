@@ -93,6 +93,7 @@ These counts show how many information prompts have answers, not operational hea
     form.hidden=true;
     document.querySelector(".aside-card").hidden=true;
     results.classList.add("active");
+    document.dispatchEvent(new Event('rdc:assessment-ready'));
     results.scrollIntoView({behavior:"smooth",block:"start"});
     const subject=encodeURIComponent(`RDC intake — ${value("business")}`);
     const body=encodeURIComponent(summary.slice(0,7000));

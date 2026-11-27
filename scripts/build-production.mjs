@@ -1,7 +1,8 @@
 import {cp,mkdir,readFile,writeFile,rm,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
+import {packageAnalytics} from './package-analytics.mjs';
 const dist='dist',domain='https://royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
-const release='2026.11.27-launch-r6';
+const release='2026.11.27-analytics-r1';
 const pages=['index.html','website-lift.html','website-intake.html','workflow.html','services.html','about.html','privacy.html','404.html','questionnaire.html'];
 await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});
 for(const f of [...pages,'redesign.css','redesign.js','demo-brief.js','script.js'])await cp(f,join(dist,f));
@@ -64,6 +65,7 @@ async function rewrite(path){
 }
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html'])await rewrite(join(dist,p));
 await rm(join(dist,'downloads','RDC-Website-Demo-Questionnaire.docx'),{force:true});
+await packageAnalytics(dist,'production');
 for(const file of ['connect/dakota/dakota-king.vcf','connect/connect.js']){
  const path=join(dist,file);let text=await readFile(path,'utf8');
  text=text.replaceAll('https://www.royaldigitalclarity.com',domain);
@@ -75,7 +77,7 @@ for(const f of ['demo-brief.js','redesign.js']){
  s=s.replaceAll('RDC WEBSITE DEMO BRIEF','RDC WEBSITE PROJECT BRIEF').replaceAll('RDC-Website-Demo-Brief.txt','RDC-Website-Project-Brief.txt').replaceAll('What must the first demo get right?','What must your website get right?').replaceAll('Explore the working sample from the customer workspace link.','Existing customers can open their separate workspace.');
  await writeFile(p,s);
 }
-const config={routes:[{route:'/connect/dakota',redirect:'/connect/dakota/',statusCode:301},{route:'/connect',redirect:'/connect/',statusCode:301},{route:'/portal',redirect:portal,statusCode:302},{route:'/api/*',statusCode:404}],responseOverrides:{'404':{rewrite:'/404.html'}},globalHeaders:{'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"}};
+const config={routes:[{route:'/connect/dakota',redirect:'/connect/dakota/',statusCode:301},{route:'/connect',redirect:'/connect/',statusCode:301},{route:'/portal',redirect:portal,statusCode:302},{route:'/api/*',statusCode:404}],responseOverrides:{'404':{rewrite:'/404.html'}},globalHeaders:{'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"}};
 // SWA treats trailing-slash variants as duplicate routes.
 const normalizedRoutes=new Set();
 for(const rule of config.routes){
