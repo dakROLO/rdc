@@ -1,6 +1,6 @@
 import {cp,mkdir,readFile,writeFile,rm,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
-const dist='dist',domain='https://www.royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
+const dist='dist',domain='https://royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
 const pages=['index.html','website-lift.html','website-intake.html','workflow.html','services.html','about.html','privacy.html','404.html','questionnaire.html'];
 await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});
 for(const f of [...pages,'redesign.css','redesign.js','demo-brief.js','script.js'])await cp(f,join(dist,f));
@@ -45,7 +45,7 @@ async function rewrite(path){
  s=s.replace(/<div class="preview-ribbon"[^>]*>[\s\S]*?<\/div>/g,'');
  s=s.replace(/<div class="test-banner">[\s\S]*?<\/div>/g,'').replace(/<span>Test release [^<]*<\/span>/g,'');
  s=s.replace(/<meta name="robots" content="noindex, nofollow">/g,path.endsWith('/404.html')?'<meta name="robots" content="noindex, follow">':'<meta name="robots" content="index, follow">');
- s=s.replaceAll('https://test.royaldigitalclarity.com',domain).replaceAll('href="/portal/"','href="'+portal+'"').replaceAll('https://royaldigitalclarity.com',domain).replaceAll(domain+'/index.html"',domain+'/"');
+ s=s.replaceAll('https://test.royaldigitalclarity.com',domain).replaceAll('href="/portal/"','href="'+portal+'"').replaceAll('https://www.royaldigitalclarity.com',domain).replaceAll(domain+'/index.html"',domain+'/"');
  for(const [a,b] of edits)s=s.replaceAll(a,b);
  // The old downloadable questionnaire is not yet approved for public distribution.
  s=s.replace(/<a[^>]*href="\/downloads\/RDC-Website-Demo-Questionnaire\.docx"[^>]*>[\s\S]*?<\/a>/g,'');
@@ -55,7 +55,7 @@ async function rewrite(path){
   s=s.replace(formStart,formStart+'<p class="fine-print intake-disclosure">This is a request for discussion, not an entitlement to complimentary design. Personal invitations are arranged directly with RDC.</p>');
   s=s.replace('YOUR FIRST WEBSITE DEMO ·','YOUR WEBSITE PROJECT ·');
  }
- // The public app and all shared metadata use the verified www hostname.
+ // The public app and all shared metadata use the verified apex hostname.
  s=s.replace(/<link rel="icon"[^>]*>/g,'<link rel="icon" href="/assets/favicon.svg?v=20261126" type="image/svg+xml"><link rel="alternate icon" href="/assets/favicon.ico?v=20261126"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20261126">');
  await writeFile(path,s);
 }
@@ -63,7 +63,7 @@ for(const p of [...pages,'connect/index.html','connect/dakota/index.html'])await
 await rm(join(dist,'downloads','RDC-Website-Demo-Questionnaire.docx'),{force:true});
 for(const file of ['connect/dakota/dakota-king.vcf','connect/connect.js']){
  const path=join(dist,file);let text=await readFile(path,'utf8');
- text=text.replaceAll('https://royaldigitalclarity.com',domain);
+ text=text.replaceAll('https://www.royaldigitalclarity.com',domain);
  if(file.endsWith('.js'))text=text.replace('new URL(window.location.pathname,window.location.origin)','new URL(window.location.pathname,'+JSON.stringify(domain)+')');
  await writeFile(path,text);
 }
@@ -84,10 +84,11 @@ await writeFile(join(dist,'staticwebapp.config.json'),JSON.stringify(config,null
 const urls=['/','/website-lift.html','/website-intake.html','/workflow.html','/services.html','/about.html','/privacy.html','/questionnaire.html','/connect/','/connect/dakota/'];
 await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+domain+'/sitemap.xml\n');
 await writeFile(join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(p=>'<url><loc>'+domain+p+'</loc></url>').join('')+'</urlset>\n');
-await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.27-launch-r4',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.27-launch-r5',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html']){
  const s=await readFile(join(dist,p),'utf8');
  if(/test\.royaldigitalclarity\.com|class="test-banner"|href="\/portal\/"|Up to \d+ (?:core )?pages/i.test(s))throw Error('Unresolved release boundary: '+p);
+ if(s.includes('https://www.royaldigitalclarity.com'))throw Error('Noncanonical hostname: '+p);
  if(p!=='404.html'&&/content="noindex/i.test(s))throw Error('Unexpected noindex: '+p);
  if(/<script\b[^>]*>\s*\S/i.test(s.replace(/<script\b[^>]*src=[^>]*>\s*<\/script>/gi,'')))throw Error('Inline script needs review: '+p);
 }
@@ -99,7 +100,7 @@ for(const route of urls){
 for(const file of ['assets/favicon.svg','assets/favicon.ico','assets/apple-touch-icon.png','404.html','robots.txt','sitemap.xml','connect/dakota/dakota-king.vcf'])await stat(join(dist,file));
 const intake=await readFile(join(dist,'website-intake.html'),'utf8');
 if(!intake.includes('<section class="intake-layout shell"><form id="demo-brief" class="brief-form"><p class="fine-print intake-disclosure">'))throw Error('Intake grid children changed unexpectedly');
-if(intake.includes('https://royaldigitalclarity.com/'))throw Error('Noncanonical intake URL');
+if(intake.includes('https://www.royaldigitalclarity.com/'))throw Error('Noncanonical intake URL');
 for(const forbidden of ['portal','portal-preview','docs','.github','api','AGENTS.md']){
  try{await stat(join(dist,forbidden));throw Error('Forbidden output '+forbidden);}catch(e){if(e.code!=='ENOENT')throw e;}
 }
