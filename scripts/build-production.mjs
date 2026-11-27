@@ -1,6 +1,7 @@
 import {cp,mkdir,readFile,writeFile,rm,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
 const dist='dist',domain='https://royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
+const release='2026.11.27-launch-r6';
 const pages=['index.html','website-lift.html','website-intake.html','workflow.html','services.html','about.html','privacy.html','404.html','questionnaire.html'];
 await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});
 for(const f of [...pages,'redesign.css','redesign.js','demo-brief.js','script.js'])await cp(f,join(dist,f));
@@ -43,7 +44,7 @@ const edits=[
 async function rewrite(path){
  let s=await readFile(path,'utf8');
  s=s.replace(/<div class="preview-ribbon"[^>]*>[\s\S]*?<\/div>/g,'');
- s=s.replace(/<div class="test-banner">[\s\S]*?<\/div>/g,'').replace(/<span>Test release [^<]*<\/span>/g,'');
+ s=s.replace(/<div class="test-banner">[\s\S]*?<\/div>/g,'').replace(/<span>Test release [^<]*<\/span>/g,'<span class="release-indicator">Release '+release+'</span>');
  s=s.replace(/<meta name="robots" content="noindex, nofollow">/g,path.endsWith('/404.html')?'<meta name="robots" content="noindex, follow">':'<meta name="robots" content="index, follow">');
  s=s.replaceAll('https://test.royaldigitalclarity.com',domain).replaceAll('href="/portal/"','href="'+portal+'"').replaceAll('https://www.royaldigitalclarity.com',domain).replaceAll(domain+'/index.html"',domain+'/"');
  for(const [a,b] of edits)s=s.replaceAll(a,b);
@@ -57,6 +58,8 @@ async function rewrite(path){
  }
  // The public app and all shared metadata use the verified apex hostname.
  s=s.replace(/<link rel="icon"[^>]*>/g,'<link rel="icon" href="/assets/favicon.svg?v=20261126" type="image/svg+xml"><link rel="alternate icon" href="/assets/favicon.ico?v=20261126"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20261126">');
+ if(!s.includes('class="release-indicator"'))s=s.replace('</footer>','<small class="release-indicator">Release '+release+'</small></footer>');
+ if(!s.includes('Release '+release))throw Error('Missing release indicator: '+path);
  await writeFile(path,s);
 }
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html'])await rewrite(join(dist,p));
@@ -84,7 +87,7 @@ await writeFile(join(dist,'staticwebapp.config.json'),JSON.stringify(config,null
 const urls=['/','/website-lift.html','/website-intake.html','/workflow.html','/services.html','/about.html','/privacy.html','/questionnaire.html','/connect/','/connect/dakota/'];
 await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+domain+'/sitemap.xml\n');
 await writeFile(join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(p=>'<url><loc>'+domain+p+'</loc></url>').join('')+'</urlset>\n');
-await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.27-launch-r5',environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+await writeFile(join(dist,'version.json'),JSON.stringify({version:release,environment:'production',portal:'separate',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
 for(const p of [...pages,'connect/index.html','connect/dakota/index.html']){
  const s=await readFile(join(dist,p),'utf8');
  if(/test\.royaldigitalclarity\.com|class="test-banner"|href="\/portal\/"|Up to \d+ (?:core )?pages/i.test(s))throw Error('Unresolved release boundary: '+p);

@@ -14,6 +14,7 @@ async function inspect(dir){for(const item of await readdir(dir,{withFileTypes:t
 await inspect(join(dist,'portal'));
 const config={routes:[{route:'/connect/dakota',redirect:'/connect/dakota/',statusCode:301},{route:'/connect',redirect:'/connect/',statusCode:301},{route:'/portal',redirect:'/portal/',statusCode:301},{route:'/api/*',statusCode:404}],responseOverrides:{'404':{rewrite:'/404.html'}},globalHeaders:{'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(), geolocation=()','X-Robots-Tag':'noindex, nofollow','Content-Security-Policy':`default-src 'self'; script-src 'self' ${[...hashes].join(' ')}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'`}};
 const encoded=JSON.stringify(config,null,2);if(Buffer.byteLength(encoded)>19000)throw new Error('SWA configuration too large');
-await writeFile(join(dist,'staticwebapp.config.json'),encoded+'\n');await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
-await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.26-acceptance-r2',environment:'test',portal:'sample-only',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+await writeFile(join(dist,'staticwebapp.config.json'),encoded+'\n');await writeFile(join(dist,'robots.txt'),'User-agent: *\nDisallow: /\n');
+await writeFile(join(dist,'version.json'),JSON.stringify({version:'2026.11.27-test-r3',environment:'test',portal:'sample-only',source:process.env.GITHUB_SHA??'local-candidate'})+'\n');
+if((await readFile(join(dist,'robots.txt'),'utf8'))!=='User-agent: *\nDisallow: /\n'||config.globalHeaders['X-Robots-Tag']!=='noindex, nofollow')throw Error('Test indexing boundary failed');
 console.log(`Packaged test website and portal. ${hashes.size} Next inline script hashes; no backend, docs, or secrets included.`);
