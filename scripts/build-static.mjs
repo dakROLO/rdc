@@ -2,6 +2,7 @@ import {cp,mkdir,readFile,writeFile,rm,readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
 import {packageAnalytics} from './package-analytics.mjs';
+import './test-analytics.mjs';
 const root=process.cwd(),dist=join(root,'dist');
 if(!process.argv.includes('--test'))throw new Error('This candidate is test-only. Production packaging requires a separately reviewed release.');
 await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});

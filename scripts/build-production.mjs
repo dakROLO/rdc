@@ -1,6 +1,7 @@
 import {cp,mkdir,readFile,writeFile,rm,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
 import {packageAnalytics} from './package-analytics.mjs';
+import './test-analytics.mjs';
 const dist='dist',domain='https://royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
 const release='2026.11.27-analytics-r1';
 const pages=['index.html','website-lift.html','website-intake.html','workflow.html','services.html','about.html','privacy.html','404.html','questionnaire.html'];

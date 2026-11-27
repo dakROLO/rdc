@@ -18,6 +18,9 @@
   const seen = new Set();
   const canonicalPath = location.pathname === "/index.html" ? "/" : location.pathname;
   const page = location.origin + canonicalPath;
+  const referrerHosts = new Set(["www.google.com","google.com","www.bing.com","bing.com","search.yahoo.com","duckduckgo.com","www.facebook.com","facebook.com","l.facebook.com","m.facebook.com","www.linkedin.com","linkedin.com","www.instagram.com","instagram.com","l.instagram.com","www.youtube.com","youtube.com"]);
+  let referrer="";
+  try {const r=new URL(document.referrer);if(r.protocol==="https:"&&referrerHosts.has(r.hostname))referrer=r.origin+"/";}catch{}
   // Unknown parameters or fragments might contain private data. Never initialize on these URLs.
   function safeLocation(){
     if(location.hash) return false;
@@ -40,7 +43,7 @@
   function clearCookies(){
     for(const entry of document.cookie.split(";")){
       const name=entry.split("=")[0].trim();
-      if(!/^(_ga(?:_[A-Z0-9]+)?|_gid)$/.test(name))continue;
+      if(!/^(_ga(?:_[A-Z0-9]+)?|_gid)$/i.test(name))continue;
       for(const domain of ["", "; domain="+location.hostname, "; domain=.royaldigitalclarity.com"]){
         document.cookie=name+"=; Max-Age=0; path=/; SameSite=Lax"+domain+(location.protocol==="https:"?"; Secure":"");
       }
@@ -49,7 +52,7 @@
   function send(name){
     if(!active || globalPrivacy() || !safeLocation() || !eventNames.has(name))return;
     if(test){document.dispatchEvent(new CustomEvent("rdc:analytics-test",{detail:{event:name}}));return;}
-    window.gtag("event",name,{send_to:id,page_location:page,page_referrer:"",page_title:document.title});
+    window.gtag("event",name,{send_to:id,page_location:page,page_referrer:referrer,page_title:document.title});
   }
   function once(name){if(!seen.has(name)&&active){seen.add(name);send(name);}}
   function start(){
@@ -63,7 +66,7 @@
       window.gtag("consent","update",granted);
       window.gtag("set","ads_data_redaction",true);
       window.gtag("js",new Date());
-      window.gtag("config",id,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:page,page_referrer:"",page_title:document.title});
+      window.gtag("config",id,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:page,page_referrer:referrer,page_title:document.title});
       tag=document.createElement("script");
       tag.async=true;tag.referrerPolicy="no-referrer";
       tag.src="https://www.googletagmanager.com/gtag/js?id="+id;
@@ -74,6 +77,7 @@
   }
   function stop(){
     active=false;
+    if(test)started=false;
     if(prod){
       window["ga-disable-"+id]=true;
       if(tag){tag.remove();tag=null;}
