@@ -34,6 +34,7 @@ function fixture({mode="G-V41994JW12",host="royaldigitalclarity.com",path="/",qu
 const first=fixture();
 assert.equal(first.doc.head.children.length,0);
 assert.equal(first.panel.hidden,false);
+assert(first.panel.innerHTML.includes('data-choice="allow">Accept analytics</button><button type="button" data-choice="reject">Reject optional'));
 first.choose("reject");
 assert.equal(first.doc.head.children.length,0);
 assert.equal(first.panel.hidden,true);

@@ -3,7 +3,7 @@ import {join} from 'node:path';
 import {packageAnalytics} from './package-analytics.mjs';
 import './test-analytics.mjs';
 const dist='dist',domain='https://royaldigitalclarity.com',portal='https://portal.royaldigitalclarity.com/';
-const release='2026.11.27-analytics-r1';
+const release='2026.11.27-analytics-r2';
 const pages=['index.html','website-lift.html','website-intake.html','workflow.html','services.html','about.html','privacy.html','404.html','questionnaire.html'];
 await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});
 for(const f of [...pages,'redesign.css','redesign.js','demo-brief.js','script.js'])await cp(f,join(dist,f));
