@@ -1,0 +1,26 @@
+/* Shared first-party consent UI; no remote fonts, scripts or images. */
+.rdc-consent[hidden],.rdc-consent [hidden]{display:none!important}
+.rdc-consent{position:fixed;z-index:1000;right:1rem;bottom:1rem;width:min(27rem,calc(100% - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;background:#fff;color:#14243b;border:1px solid #c8d4e2;border-radius:12px;box-shadow:0 12px 40px #10203438;box-sizing:border-box;padding:.75rem;font:inherit;line-height:1.4}
+.rdc-consent h2{font-size:1rem;margin:0 0 .25rem;color:#14243b}
+.rdc-consent p{font-size:.875rem;margin:.25rem 0;color:#26384b}
+.rdc-consent a{color:#005caa;text-decoration:underline}
+.rdc-consent-actions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}
+.rdc-consent button{border:1px solid #005caa;border-radius:6px;padding:.4rem .6rem;background:#fff;color:#004e91;font:inherit;font-size:.85rem;font-weight:650;cursor:pointer}
+.rdc-consent-actions button[data-choice="allow"]{background:#0062b8;border-color:#0062b8;color:#fff;min-height:44px}
+.rdc-consent-actions button[data-choice="reject"]{background:#334155;border-color:#334155;color:#fff;min-height:44px}
+.rdc-consent-actions button[data-choice="custom"]{min-height:44px}
+.rdc-consent-actions button[data-choice="allow"]:not(:disabled):hover{background:#004e91;border-color:#004e91}
+.rdc-consent-actions button[data-choice="reject"]:hover{background:#1e293b;border-color:#1e293b}
+.rdc-consent button:disabled{opacity:.5;cursor:not-allowed}
+.rdc-consent-custom{margin-top:.7rem;padding-top:.7rem;border-top:1px solid #c8d4e2}
+.rdc-consent-custom label{display:flex;align-items:center;gap:.55rem;font-size:.9rem}
+.rdc-privacy-trigger{display:block;margin:.7rem auto 1rem;padding:.3rem .6rem;border:1px solid currentColor;border-radius:5px;background:transparent;color:inherit;font:inherit;font-size:.85rem;cursor:pointer}
+.rdc-consent button:focus-visible,.rdc-privacy-trigger:focus-visible,.rdc-consent input:focus-visible{outline:3px solid #ed7800;outline-offset:3px}
+.rdc-consent-status:empty{display:none}
+.rdc-consent-actions button{flex:1 1 auto;min-height:44px;line-height:1.2}
+@media(max-width:600px){
+  .rdc-consent{right:.5rem;bottom:calc(.5rem + env(safe-area-inset-bottom,0px));width:calc(100% - 1rem);padding:.6rem .7rem;max-height:calc(100dvh - 1rem)}
+  .rdc-consent-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rdc-consent-actions button{padding:.35rem .25rem;font-size:.8125rem;white-space:normal}
+}
+@media(max-width:350px){.rdc-consent-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.rdc-consent-actions button[data-choice="custom"]{grid-column:1/-1}}
